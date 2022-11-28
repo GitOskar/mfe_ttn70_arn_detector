@@ -1,0 +1,48 @@
+.findTtnsBtn {
+    -fx-background-color: #F0C66B;
+    -fx-font: 16px Serif;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-color: #cc850a;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.findTtnsBtn:hover {
+    -fx-background-color: #D0A449;
+}
+
+.findTtnsBtn:pressed {
+    -fx-background-color: #F2E88D;
+}
+
+.reloadBtn {
+    -fx-background-color: #F0C66B;
+    -fx-border-width: 2 2 2 2;
+    -fx-border-color: #cc850a;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}
+
+.reloadBtn:hover {
+    -fx-background-color: #D0A449;
+}
+
+.reloadBtn:pressed {
+    -fx-background-color: #F2E88D;
+}
+
+.reloadBtn .glyph-icon {
+    -fx-fill: #D68800;
+}
+
+.reloadBtn:hover .glyph-icon {
+    -fx-fill: #B46600;
+}
+
+.reloadBtn:pressed .glyph-icon {
+    -fx-fill: #F8AA22;
+}
+
+.progress-bar {
+    -fx-accent: #D0A449;
+}
