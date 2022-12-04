@@ -16,9 +16,9 @@ public class Ttn70FileFinder {
 
     private static final FilenameFilter FILENAME_FILTER = new Ttn70FilenameFilter();
 
-    public static List<File> findTtn70FilesInCurrentDir() {
-        File currentDir = new File(".");
-        File[] ttn70Files = Optional.ofNullable(currentDir.listFiles(FILENAME_FILTER)).orElseGet(() -> new File[]{});
+    public static List<File> findTtn70FilesInDir(String pathToDirectory) {
+        File dir = new File(pathToDirectory);
+        File[] ttn70Files = Optional.ofNullable(dir.listFiles(FILENAME_FILTER)).orElseGet(() -> new File[]{});
         return stream(ttn70Files).filter(File::isFile).collect(toCollection(ArrayList::new));
     }
 }

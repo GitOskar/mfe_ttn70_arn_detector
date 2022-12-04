@@ -9,7 +9,8 @@ public interface ArnDetectorService {
     /**
      * Method finds and returns ttn70 files when arn was occurred at least 1 time. If any file was found new dir will be created with copy of these files
      * @param arns - arns to find in files
+     * @param pathToTtnFiles - path to ttn files that will be scanned
      * @return list of files where any ARN was occurred
      */
-    List<String> findTtn70FilesByArns(List<String> arns);
+    List<String> findTtn70FilesByArns(String pathToTtnFiles, List<String> arns);
 }

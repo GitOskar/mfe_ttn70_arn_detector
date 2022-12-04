@@ -26,10 +26,11 @@ public class Ttn70FileUtils {
                 .orElse(null);
     }
 
-    public static void createDirAndSaveFiles(Collection<File> files) {
+    public static void createDirAndSaveFiles(String basePath, Collection<File> files) {
         LocalDateTime now = LocalDateTime.now();
         String dirName = CONST_DIR_NAME + now.format(FILE_DATE_TIME_FORMATTER);
-        File dir = new File(dirName);
+        Path path = Path.of(basePath);
+        File dir = path.resolve(dirName).toFile();
 
         if (!dir.mkdirs()) {
             System.out.println("Dir " + dirName + " cannot be created");

@@ -46,3 +46,8 @@
 .progress-bar {
     -fx-accent: #D0A449;
 }
+
+.path-text-area {
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+}

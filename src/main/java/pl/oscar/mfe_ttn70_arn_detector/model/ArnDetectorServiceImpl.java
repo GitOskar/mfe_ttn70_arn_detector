@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static pl.oscar.mfe_ttn70_arn_detector.model.ttn70filefinder.Ttn70FileFinder.findTtn70FilesInCurrentDir;
+import static pl.oscar.mfe_ttn70_arn_detector.model.ttn70filefinder.Ttn70FileFinder.findTtn70FilesInDir;
 import static pl.oscar.mfe_ttn70_arn_detector.model.utils.FileUtils.getFileNames;
 import static pl.oscar.mfe_ttn70_arn_detector.model.utils.Ttn70FileUtils.createDirAndSaveFiles;
 import static pl.oscar.mfe_ttn70_arn_detector.model.utils.Ttn70FileUtils.extractArnFromLine;
@@ -20,8 +20,8 @@ public class ArnDetectorServiceImpl implements ArnDetectorService {
     }
 
     @Override
-    public List<String> findTtn70FilesByArns(List<String> arns) {
-        List<File> ttn70Files = findTtn70FilesInCurrentDir();
+    public List<String> findTtn70FilesByArns(String pathToTtnFiles, List<String> arns) {
+        List<File> ttn70Files = findTtn70FilesInDir(pathToTtnFiles);
         Set<File> ttn70FilesWithArns = new HashSet<>();
 
         for (File file : ttn70Files) {
@@ -36,10 +36,8 @@ public class ArnDetectorServiceImpl implements ArnDetectorService {
             }
         }
 
-        createDirAndSaveFiles(ttn70FilesWithArns);
+        createDirAndSaveFiles(pathToTtnFiles, ttn70FilesWithArns);
 
         return getFileNames(ttn70FilesWithArns);
     }
-
-
 }

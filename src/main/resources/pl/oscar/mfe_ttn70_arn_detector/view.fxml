@@ -23,12 +23,9 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </Label>
-        <TextArea fx:id="taInput" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6a009; -fx-control-inner-background: #F0C66B;" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
-            <padding>
-                <Insets left="2.0" right="2.0" top="2.0" />
-            </padding>
+        <TextArea fx:id="taInput" prefHeight="200.0" prefWidth="336.0" style="-fx-background-color: #e6a009; -fx-control-inner-background: #F0C66B;" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
-                <Insets bottom="5.0" />
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </GridPane.margin>
         </TextArea>
         <Label prefHeight="34.0" text="Files with at least one ARN occurred:" wrapText="true" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
@@ -56,16 +53,6 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </GridPane.margin>
         </TextArea>
-        <ProgressBar maxWidth="1.7976931348623157E308" prefWidth="200.0" progress="0.0" GridPane.rowIndex="3">
-            <GridPane.margin>
-                <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
-            </GridPane.margin>
-        </ProgressBar>
-        <Label text="0 %" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
-            <GridPane.margin>
-                <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
-            </GridPane.margin>
-        </Label>
         <Button mnemonicParsing="false" onAction="#refreshArnBtnClick" styleClass="reloadBtn" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
             <GridPane.margin>
                 <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
@@ -74,5 +61,22 @@
                 <FontAwesomeIconView glyphName="REFRESH" glyphSize="24" />
             </graphic>
         </Button>
+      <GridPane GridPane.rowIndex="3">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="127.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="72.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#changePath" styleClass="reloadBtn" text="Path" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label fx:id="pathLabel" alignment="CENTER" text="Path ..." GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
     </children>
 </GridPane>
