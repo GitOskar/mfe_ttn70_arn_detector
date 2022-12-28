@@ -1,5 +1,6 @@
 package pl.oscar.mfe_ttn70_arn_detector.model;
 
+import lombok.extern.slf4j.Slf4j;
 import pl.oscar.mfe_ttn70_arn_detector.model.utils.FileUtils;
 
 import java.io.File;
@@ -12,6 +13,7 @@ import static pl.oscar.mfe_ttn70_arn_detector.model.utils.FileUtils.getFileNames
 import static pl.oscar.mfe_ttn70_arn_detector.model.utils.Ttn70FileUtils.createDirAndSaveFiles;
 import static pl.oscar.mfe_ttn70_arn_detector.model.utils.Ttn70FileUtils.extractArnFromLine;
 
+@Slf4j
 public class ArnDetectorServiceImpl implements ArnDetectorService {
 
     @Override
@@ -29,13 +31,12 @@ public class ArnDetectorServiceImpl implements ArnDetectorService {
             for (String line : lines) {
                 String arn = extractArnFromLine(line);
                 if (arns.contains(arn)) {
-                    System.out.println("File: " + file.getName() + " contains ARN: " + arn);
+                    log.info("File: {} contains ARN: {}", file.getName(), arn);
                     ttn70FilesWithArns.add(file);
                     arns.remove(arn);
                 }
             }
         }
-
         createDirAndSaveFiles(pathToTtnFiles, ttn70FilesWithArns);
 
         return getFileNames(ttn70FilesWithArns);

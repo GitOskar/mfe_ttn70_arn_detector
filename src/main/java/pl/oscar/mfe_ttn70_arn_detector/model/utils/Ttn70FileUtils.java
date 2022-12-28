@@ -1,6 +1,7 @@
 package pl.oscar.mfe_ttn70_arn_detector.model.utils;
 
 import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Optional;
 
+@Slf4j
 @UtilityClass
 public class Ttn70FileUtils {
 
@@ -33,7 +35,7 @@ public class Ttn70FileUtils {
         File dir = path.resolve(dirName).toFile();
 
         if (!dir.mkdirs()) {
-            System.out.println("Dir " + dirName + " cannot be created");
+            log.error("Dir {} cannot be created", dirName);
             throw new UnsupportedOperationException("Dir: " + dirName + " cannot be created");
         }
 
@@ -43,7 +45,7 @@ public class Ttn70FileUtils {
             try {
                 Files.copy(src.toPath(), dirPath.resolve(src.getName()));
             } catch (IOException e) {
-                System.out.println("Error occurred during coping file: " + src.getName());
+                log.error("Error occurred during coping file: {}", src.getName(), e);
             }
         });
     }
